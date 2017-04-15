@@ -1,0 +1,43 @@
+
+*****************تقسيم التاسكات **************
+--------علي حسب اللي معمول في ال class diagram موجود علي الgithub
+
+1- Ahmed salah :
+
+ class invoice , librarian deadline (monday 17 Apr) 
+
+********************************************
+
+2- Eslam:
+
+ activity daiagram deadline (wed 12 Apr)
+
+ class member , section , book deadline (monday 17 Apr) 
+
+*******************************************
+
+3- Ahmed adel :
+
+ details pattern deadline ( wed 12 Apr)
+
+ class inventory , episode inventory deadline (monday 17 Apr) 
+
+******************************************
+
+4- hassan mokhtar:
+ reational schema deadline ( wed 12 Apr)
+
+ class database deadline (monday 17 Apr) 
+
+*****************************************
+
+5- ahmed hesham :
+
+class GUI deadline (Sat 15 Apr) 
+
+
+
+
+
+
+
