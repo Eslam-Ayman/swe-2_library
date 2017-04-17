@@ -150,12 +150,13 @@ public class database {
                 // check prepare the database
                if (this.prepareDB() == 1 || this.prepareDB() == 2)
                {
+                   this.prepare();
                     this.connectionDB = DriverManager.getConnection(
                               this.details.get("url")+this.details.get("databaseName")
                             , this.details.get("username")
                             , this.details.get("password")
                     );
-                                       
+                    
                     return true;
                }
               else 
@@ -365,7 +366,7 @@ public class database {
         else 
             condition = "WHERE " + condition;
         
-        String query = "SELECT "+ column + " FROM `" + nameTable + "` " + condition + ";" ;
+        String query = "SELECT "+ column + " FROM " + nameTable + " " + condition + ";" ;
         System.out.println(query);
        
            try{
@@ -705,6 +706,43 @@ public class database {
             return false;
         }
        
+    }
+    
+    /*
+    *   function to drop the database
+    *
+    *
+    *   @param void
+    *   @return Boolean
+    */
+    public Boolean dropDB(){
+        
+        try {
+            
+            this.statement = this.connectionDB.createStatement(
+                    this.resultSet.TYPE_SCROLL_INSENSITIVE
+                    ,this.resultSet.CONCUR_UPDATABLE
+            );
+            
+            
+            String query = "DROP DATABASE " + this.details.get("databaseName");
+            
+            this.statement.executeLargeUpdate(query);
+            
+            return true;
+            
+        } catch (SQLException ex) {
+           
+            System.err.println("Cannot Drop the database!");
+            
+            return false;
+        }catch(NullPointerException e){
+            
+            System.err.println("Error for connection!");
+            
+            return false;
+        }
+        
     }
     
     /*
