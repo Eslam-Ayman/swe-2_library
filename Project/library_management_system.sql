@@ -1,4 +1,5 @@
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -8,15 +9,24 @@ use library_management_system;
 
 CREATE TABLE `book` (
   `ID` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
   `serialNo` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `publishingHouse` varchar(250) NOT NULL,
-  `author` varchar(250) NOT NULL,
-  `numberPaper` int(20) NOT NULL,
+  `state` tinyint(1) NOT NULL,
+  `dateOfReturn` date NOT NULL,
+  `copyID` int(11) NOT NULL,
   `type` int(11) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `copy` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `description` text NOT NULL,
+  `author` varchar(250) NOT NULL,
+  `numberOfPaper` int(20) NOT NULL,
+  `price` double NOT NULL,
+  `publishPlace` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `invoice` (
@@ -30,7 +40,6 @@ CREATE TABLE `invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 CREATE TABLE `librarian` (
   `ID` int(11) NOT NULL,
   `username` varchar(250) NOT NULL,
@@ -41,10 +50,8 @@ CREATE TABLE `librarian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 INSERT INTO `librarian` (`ID`, `username`, `password`, `salary`, `admin`, `userID`) VALUES
 (1, 'enghassan', 'hassan', 2500, 1, 1);
-
 
 
 CREATE TABLE `section` (
@@ -55,7 +62,6 @@ CREATE TABLE `section` (
   `numberBook` int(11) NOT NULL,
   `subSection` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 
 CREATE TABLE `subSection` (
@@ -72,10 +78,10 @@ CREATE TABLE `typeUser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 INSERT INTO `typeUser` (`ID`, `typeUser`) VALUES
 (1, 'librarian'),
 (2, 'member');
+
 
 
 CREATE TABLE `users` (
@@ -91,15 +97,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 INSERT INTO `users` (`ID`, `name`, `address`, `email`, `ssn`, `gender`, `phone`, `dateBirth`, `typeUser`) VALUES
 (1, 'hassan', 'el sherouk', 'eng.hassan2015@yahoo.com', 1122, 1, 111235, '2017-04-11', 1);
 
 
 ALTER TABLE `book`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `serialNo` (`serialNo`),
-  ADD KEY `fk_forign_book_sec` (`type`);
+  ADD UNIQUE KEY `serialNo` (`serialNo`);
+
+
+ALTER TABLE `copy`
+  ADD PRIMARY KEY (`id`);
 
 
 ALTER TABLE `invoice`
@@ -110,7 +118,7 @@ ALTER TABLE `librarian`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `fk_foreign_librarian` (`userID`);
 
-	
+
 ALTER TABLE `section`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `serialNo` (`serialNo`),
@@ -135,10 +143,12 @@ ALTER TABLE `users`
 ALTER TABLE `book`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `invoice`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-	
+
 ALTER TABLE `librarian`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
@@ -154,8 +164,14 @@ ALTER TABLE `typeUser`
 ALTER TABLE `users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+
 ALTER TABLE `book`
   ADD CONSTRAINT `fk_forign_book_sec` FOREIGN KEY (`type`) REFERENCES `section` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE `book`
+  ADD CONSTRAINT `fk_forign_book_copy` FOREIGN KEY (`copyID`) REFERENCES `copy` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
 
 ALTER TABLE `librarian`
@@ -172,4 +188,5 @@ ALTER TABLE `subSection`
 
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_forign_user_typeUser` FOREIGN KEY (`typeUser`) REFERENCES `typeUser` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 
