@@ -13,7 +13,6 @@ CREATE TABLE `book` (
   `state` tinyint(1) NOT NULL,
   `dateOfReturn` date NOT NULL,
   `copyID` int(11) NOT NULL,
-  `type` int(11) NOT NULL
   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -25,6 +24,7 @@ CREATE TABLE `copy` (
   `author` varchar(250) NOT NULL,
   `numberOfPaper` int(20) NOT NULL,
   `price` double NOT NULL,
+  `type` int(11) NOT NULL,
   `publishPlace` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -165,7 +165,7 @@ ALTER TABLE `users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 
-ALTER TABLE `book`
+ALTER TABLE `copy`
   ADD CONSTRAINT `fk_forign_book_sec` FOREIGN KEY (`type`) REFERENCES `section` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
@@ -188,5 +188,4 @@ ALTER TABLE `subSection`
 
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_forign_user_typeUser` FOREIGN KEY (`typeUser`) REFERENCES `typeUser` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 
