@@ -111,8 +111,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getName(){
+    public String getName(){
         //to do ...
+        return this.name;
     }
     
     /*
