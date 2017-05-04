@@ -6,7 +6,7 @@ import java.util.HashMap;
 import static library.management.system.database.getInstance;
 
 public class member extends librarian {
-    database db = getInstance();
+    private database db = getInstance();
    public boolean addMember(member obj)
     {
         HashMap<String,String> insert = new HashMap<>();
@@ -39,11 +39,11 @@ public class member extends librarian {
         insert.put("dateOfBirth", obj.getDateOfBirth());
         return db.update("member",insert,"");
     }
-    public ResultSet searchMember(String ID)
+    public member searchMember(String ID)
     {
         HashMap<String,String> search = new HashMap<>();
         search.put("ID", ID);
-        return db.select(search);
+        return (member)db.select(search);
     }
     
 
