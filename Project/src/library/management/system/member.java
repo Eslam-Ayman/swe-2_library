@@ -8,7 +8,7 @@ import static library.management.system.database.getInstance;
 public class member extends librarian {
     private database db = getInstance();
    public boolean addMember(member obj)
-    {
+    { // there is error ther becuase when the class liberian fnish everything well be okay
         HashMap<String,String> insert = new HashMap<>();
         insert.put("name", obj.getName());
         insert.put("phone", obj.getPhoneNo());
