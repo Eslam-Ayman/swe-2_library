@@ -1,6 +1,9 @@
 
 package library.management.system;
 
+import java.util.HashMap;
+import static library.management.system.database.getInstance;
+
 public class librarian {
     
     /*
@@ -58,7 +61,7 @@ public class librarian {
     *
     *   @var int
     */
-    private int ssn;
+    private String ssn;
     
     /*
     *   store the username
@@ -92,7 +95,9 @@ public class librarian {
     */
     private Boolean admin;
     
+    private String type;
     
+    private database db = getInstance();
     /*
     *   function set the name
     *
@@ -100,8 +105,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setName(){
+    public boolean setName(String name){
         //to do ...
+        this.name = name;
+        return true;
     }
     
     /*
@@ -123,8 +130,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setPhoneNo(){
+    public boolean setPhoneNo(String phone){
         //to do ...
+        this.phoneNo = phone;
+        return true;
     }
     
     /*
@@ -134,8 +143,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getPhoneNo(){
+    public String getPhoneNo(){
         //to do ...
+        return this.phoneNo;
     }
     
     /*
@@ -145,8 +155,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setGender(){
-        //to do ...
+    public boolean setGender(boolean gender){
+        this.gender = gender;
+        return true;
     }
     
     /*
@@ -156,8 +167,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getGender(){
+    public boolean getGender(){
         //to do ...
+        return this.gender;
     }
     
     /*
@@ -167,8 +179,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setEmail(){
+    public boolean setEmail(String email){
         //to do ...
+        this.email = email;
+        return true;
     }
     
     /*
@@ -178,8 +192,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getEmail(){
+    public String getEmail(){
         //to do ...
+        return this.email;
     }
     
     /*
@@ -189,8 +204,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setSalary(){
+    public boolean setSalary(double salary){
         //to do ...
+        this.salary = salary;
+        return true;
     }
     
     /*
@@ -200,8 +217,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getSalary(){
+    public double getSalary(){
         //to do ...
+        return this.salary;
     }
     
     /*
@@ -211,8 +229,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setAddress(){
+    public boolean setAddress(String address){
         //to do ...
+        this.address = address;
+        return true;
     }
     
     /*
@@ -222,8 +242,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getAddress(){
+    public String getAddress(){
         //to do ...
+        return this.address;
     }
     
     /*
@@ -233,8 +254,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setUsername(){
+    public boolean setUsername(String username){
         //to do ...
+        this.username = username;
+        return true;
     }
     
     /*
@@ -244,8 +267,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getUsername(){
+    public String getUsername(){
         //to do ...
+        return this.username;
     }
     
     /*
@@ -255,8 +279,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setPassword(){
+    public boolean setPassword(String password){
         //to do ...
+        this.password = password;
+        return true;
     }
     
     /*
@@ -266,8 +292,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getPassword(){
+    public String getPassword(){
         //to do ...
+        return this.password;
     }
     
     /*
@@ -277,7 +304,7 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setAdmin(){
+   /* public boolean setAdmin(){
         //to do ...
     }
     
@@ -287,10 +314,10 @@ public class librarian {
     *
     *   @param ...  
     *   @return ...
-    */
+    *
     public void getAdmin(){
         //to do ...
-    }
+    }*/
     
     /*
     *   function set the ssn
@@ -299,8 +326,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setSsn(){
+    public boolean setSsn(String ssn){
         //to do ...
+        this.ssn = ssn;
+        return true;
     }
     
     /*
@@ -310,8 +339,18 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getSsn(){
+    public String getSsn(){
         //to do ...
+        return this.ssn;
+    }
+    public boolean setType(String type){
+        //to do ...
+        this.type = type;
+        return true;
+    }
+    public String getType(){
+        //to do ...
+        return this.type;
     }
     
     /*
@@ -321,8 +360,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void setDateOfBirth(){
+    public boolean setDateOfBirth(String birthDate){
         //to do ...
+        this.dateOfBirth = birthDate;
+        return true;
     }
     
     /*
@@ -332,8 +373,9 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void getDateOfBirth(){
+    public String getDateOfBirth(){
         //to do ...
+        return this.dateOfBirth;
     }
     
     /*
@@ -343,8 +385,19 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void addBook(){ 
+    public boolean addBook(book obj){ 
         // to do ....
+        HashMap<String,String> insert = new HashMap<>();
+        insert.put("name", obj.getName());
+        insert.put("price", Double.toString(obj.getPrice()));
+        insert.put("type", obj.getType());
+        insert.put("description", obj.getDescription());
+        insert.put("auther", obj.getAuther());
+        insert.put("numOfPaper", Integer.toString(obj.getNumOfPaper()));
+        insert.put("publishPlace", obj.getPublishPlace());
+        insert.put("state", Boolean.toString(obj.getState()));
+        insert.put("dateOfReturn", obj.getDateOfReturn());
+        return db.insert("book",insert );
     }
     
     /*
@@ -354,8 +407,18 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void updateBook(){ 
-        // to do ....
+    public boolean updateBook(String sn, book obj){ 
+        HashMap<String,String> insert = new HashMap<>();
+        insert.put("name", obj.getName());
+        insert.put("price", Double.toString(obj.getPrice()));
+        insert.put("type", obj.getType());
+        insert.put("description", obj.getDescription());
+        insert.put("auther", obj.getAuther());
+        insert.put("numOfPaper", Integer.toString(obj.getNumOfPaper()));
+        insert.put("publishPlace", obj.getPublishPlace());
+        insert.put("state", Boolean.toString(obj.getState()));
+        insert.put("dateOfReturn", obj.getDateOfReturn());
+        return db.update("book",insert,sn);
     }
     
     /*
@@ -365,8 +428,12 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void deleteBook(){ 
+    public boolean deleteBook(String sn, String name){ 
         // to do ....
+         HashMap<String,String> delete = new HashMap<>();
+        delete.put("sn", sn);
+        delete.put("name", name);
+        return db.delete(delete);
     }
     
     /*
@@ -376,8 +443,21 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void addLibrarian(){ 
+    public boolean addLibrarian(librarian obj){ 
         // to do ....
+         HashMap<String,String> insert = new HashMap<>();
+         insert.put("salary", Double.toString(obj.getSalary()));
+        insert.put("name", obj.getName());
+        insert.put("phone", obj.getPhoneNo());
+        insert.put("email", obj.getEmail());
+        insert.put("address", obj.getAddress());
+        insert.put("gender", Boolean.toString(obj.getGender()));
+        insert.put("snn", obj.getSsn());
+        insert.put("type", obj.getType());
+        insert.put("dateOfBirth", obj.getDateOfBirth());
+        insert.put("username", obj.getUsername());
+        insert.put("password", obj.getPassword());
+        return db.insert("librarian",insert );
     }
     
     /*
@@ -387,8 +467,21 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void updateLibrarian(){ 
+    public boolean updateLibrarian(String ID , librarian obj){ 
         // to do ....
+        HashMap<String,String> insert = new HashMap<>();
+         insert.put("salary", Double.toString(obj.getSalary()));
+        insert.put("name", obj.getName());
+        insert.put("phone", obj.getPhoneNo());
+        insert.put("email", obj.getEmail());
+        insert.put("address", obj.getAddress());
+        insert.put("gender", Boolean.toString(obj.getGender()));
+        insert.put("snn", obj.getSsn());
+        insert.put("type", obj.getType());
+        insert.put("dateOfBirth", obj.getDateOfBirth());
+        insert.put("username", obj.getUsername());
+        insert.put("password", obj.getPassword());
+        return db.update("librarian",insert,ID);
     }
     
     /*
@@ -398,8 +491,11 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void deleteLibrarian(){ 
+    public boolean deleteLibrarian(String ID){ 
         // to do ....
+         HashMap<String,String> delete = new HashMap<>();
+        delete.put("ID", ID);
+        return db.delete(delete);
     }
     
     /*
@@ -409,30 +505,37 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void addMember(){ 
-        // to do ....
+   public boolean addMember(member obj)
+    { // there is error ther becuase when the class liberian fnish everything well be okay
+        HashMap<String,String> insert = new HashMap<>();
+        insert.put("name", obj.getName());
+        insert.put("phone", obj.getPhoneNo());
+        insert.put("email", obj.getEmail());
+        insert.put("address", obj.getAddress());
+        insert.put("gender", Boolean.toString(obj.getGender()));
+        insert.put("snn", obj.getSsn());
+        insert.put("type", obj.getType());
+        insert.put("dateOfBirth", obj.getDateOfBirth());
+        return db.insert("member",insert );
     }
-    
-    /*
-    *   function update member by id
-    *
-    *
-    *   @param ...  
-    *   @return ...
-    */
-    public void updateMember(){ 
-        // to do ....
+    public boolean deleteMember(String ID)
+    {
+         HashMap<String,String> delete = new HashMap<>();
+        delete.put("ID", ID);
+        return db.delete(delete);
     }
-    
-    /*
-    *   function delete member by id
-    *
-    *
-    *   @param ...  
-    *   @return ...
-    */
-    public void deleteMember(){ 
-        // to do ....
+    public boolean editMember(String ID , member obj)
+    {
+         HashMap<String,String> insert = new HashMap<>();
+        insert.put("name", obj.getName());
+        insert.put("phone", obj.getPhoneNo());
+        insert.put("email", obj.getEmail());
+        insert.put("address", obj.getAddress());
+        insert.put("gender", Boolean.toString(obj.getGender()));
+        insert.put("snn", obj.getSsn());
+        insert.put("type", obj.getType());
+        insert.put("dateOfBirth", obj.getDateOfBirth());
+        return db.update("member",insert,ID);
     }
     
     /*
@@ -442,30 +545,33 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void addSection(){ 
-        // to do ....
+   public boolean addSection(section obj)
+    {
+         HashMap<String,String> insert = new HashMap<>();
+        insert.put("name", obj.getName());
+        insert.put("numOfBook", Integer.toString(obj.getNumOfBook()));
+        insert.put("sn", obj.getSn());
+        insert.put("description", obj.getDescription());
+        return db.insert("section",insert);
+    }
+    public boolean editSection(String data, String sn)
+    {
+         HashMap<String,String> edit = new HashMap<>();
+        edit.put("sn", sn);
+        edit.put("data", data);
+        return db.update("section",edit, sn);
+    }
+    public boolean deleteSection(String sn, String name)
+    {
+        HashMap<String,String> delete = new HashMap<>();
+        delete.put("sn", sn);
+        delete.put("name", name);
+        return db.delete(delete);
     }
     
-    /*
-    *   function update section by id
-    *
-    *
-    *   @param ...  
-    *   @return ...
-    */
-    public void updateSection(){ 
-        // to do ....
-    }
-    
-    /*
-    *   function delete section bye id
-    *
-    *
-    *   @param ...  
-    *   @return ...
-    */
-    public void deleteSection(){ 
-        // to do ....
+  
+
+    public librarian() {
     }
     
     /*
@@ -475,9 +581,14 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void searchBook(){ 
-        // to do ....
+    public book searchBook(String sn, String name)
+    {
+        HashMap<String,String> search = new HashMap<>();
+        search.put("sn", sn);
+        search.put("name", name);
+        return (book)db.select(search);
     }
+    
     
     /*
     *   function search member
@@ -486,8 +597,11 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void searchMember(){ 
-        // to do ....
+    public member searchMember(String ID)
+    {
+        HashMap<String,String> search = new HashMap<>();
+        search.put("ID", ID);
+        return (member)db.select(search);
     }
     
     /*
@@ -497,8 +611,12 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void searchSection(){ 
-        // to do ....
+    public section searchSection(String sn, String name)
+    {
+        HashMap<String,String> search = new HashMap<>();
+        search.put("sn", sn);
+        search.put("name", name);
+        return (section)db.select(search);
     }
     
     /*
@@ -508,8 +626,10 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void showInvoice(){ 
+    public invoice showInvoice(String memID, String[] bookID){ 
         // to do ....
+        invoice obj = new invoice();
+        return obj.generateInvoice(bookID, memID);
     }
     
     /*
@@ -530,8 +650,16 @@ public class librarian {
     *   @param ...  
     *   @return ...
     */
-    public void login(){ 
+    public boolean login(String username, String password){ 
         // to do ....
+        HashMap<String,String> search = new HashMap<>();
+        search.put("username", username);
+        search.put("password", password);
+        if (db.select(search))
+            return true;
+        else
+            return false;
+        
     }
     
     /*

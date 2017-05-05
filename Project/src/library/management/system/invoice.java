@@ -3,6 +3,7 @@ package library.management.system;
 
 public class invoice {
     
+    int invoiceNo;
     /*
     *   store the date of the invoice
     *   
@@ -38,8 +39,24 @@ public class invoice {
     *   @param .....
     *   @return .....
     */
-    public void generateInvoice(){
+    private database db = database.getInstance();
+    public boolean setDate(String date)
+    {
+        this.date = date;
+        return true;
+    }
+    public String getDate(String date)
+    {
+        return this.date;
+    }
+    
+    public invoice generateInvoice(book[] book , String memID){
         // to do ......
+        invoice obj = new invoice();
+        obj.memberName = memID;
+        obj.date = this.date;
+        obj.book = book;
+        return obj;
     }
     
     /*
@@ -49,8 +66,14 @@ public class invoice {
     *   @param .....
     *   @return .....
     */
-    public void generateInvoiceByAmount(){
+    public invoice generateInvoiceByAmount(String memID, double amount){
         // to do ......
+        invoice obj = new invoice();
+        obj.memberName = memID;
+        obj.date = this.date;
+        obj.book = book;
+        obj.totalAmount = amount;
+        return obj;
     }
     
 }

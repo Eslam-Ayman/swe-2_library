@@ -61,7 +61,7 @@ public class section {
          HashMap<String,String> edit = new HashMap<>();
         edit.put("sn", sn);
         edit.put("data", data);
-        return db.update("section",edit,"");
+        return db.update("section",edit, sn);
     }
     public boolean deleteSection(String sn, String name)
     {
