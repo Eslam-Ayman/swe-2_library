@@ -1,0 +1,145 @@
+package library.management.system;
+
+public class Copy {
+    
+    private String name;
+    private Double price;
+    private int type;
+    private String description;
+    private String auther;
+    private int numOfPeper;
+    private String publishPlace;
+    private Validation valid;
+    
+    public Copy()
+    {
+        valid = new Validation();
+    }
+    public Boolean setname(String name)
+    {
+        if(valid.validateName(name))
+        {
+            this.name =name;
+            return true;
+        }
+        return true;
+    }
+    public String getname()
+    {
+        return this.name;
+    }
+    public Boolean setprice(Double price)
+    {
+        this.price=price;
+        return true;
+    }
+    public Double getprice()
+    {
+        return this.price;
+    }
+    public Boolean setType(int type)
+    {
+        
+            this.type = type;
+            return true;
+        
+        
+    }
+    public int getType()
+    {
+        return this.type;
+    }
+    public Boolean setDescription(String desc)
+    {
+    
+            this.description = desc;
+            return true;
+      
+      
+    }
+    public String getDescription()    
+    {
+        return this.description;
+    }
+    public Boolean setAuther(String name)
+    {
+        if(valid.validateName(name))
+        {
+            this.auther =name;
+            return true;
+        }
+        return false;
+    }
+
+    public String getAuther()
+    {
+        return this.auther;
+    }
+
+    public Boolean setNumOfPeper(int num )
+    {
+        this.numOfPeper =num;
+        return true;
+    }
+
+    public int getNumOfPeper()
+    {
+        return this.numOfPeper;
+    }
+    
+    
+    public Boolean setPublishPlace(String pub)
+    {
+        if(valid.validateName(pub))
+        {
+            this.publishPlace =pub;
+            return true;
+        }
+        else
+            return false;
+        
+    }
+    public String getPublishPlace()
+    {
+        return this.publishPlace;
+    }
+ /*   public Boolean equalCopy(Copy obj)
+    {
+        if(this.name ==obj.getname())
+        {
+            if(this.auther == obj.getAuther())
+            {
+                if(this.numOfPeper == obj.getNumOfPeper())
+                {
+                    if(this.description ==obj.getDescription())
+                    {
+                        if(this.type == obj.getType())
+                        {
+                            if(this.price == obj.getprice())
+                            {
+                                if(this.publishPlace == obj.getPublishPlace())
+                                {
+                                    return true;
+                                }
+                                else 
+                                    return false;
+                            }
+                            else 
+                                return false;
+                        }
+                    }
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+       
+            return false;
+    }
+   */ 
+    
+}
