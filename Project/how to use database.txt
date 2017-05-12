@@ -1,0 +1,51 @@
+1- select function:
+	ex:
+		HashMap hash = new HashMap<String,String>();	
+		hash.put("column","column1 ,column2 ,column ....");
+		hash.put("nameTable",".....");
+		hash.put("condition","ID = 1 AND name = 'hassan' ");
+		ResultSet rs = select(hash);
+		to show the number of row
+			rs.last();
+			System.out.println(rs.getRow()); otherwise remove rs.last();
+
+2- insert function:
+	ex:
+		HashMap hash = new HashMap<String,String>();
+	
+		hash.put("column 1"," 'hassan' ");
+
+		hash.put("column 2"," 1 ");
+
+		hash.put("column n","...");
+
+		String nameTable = ..... ;
+		
+		insert(nameTable , hash) return boolean
+
+
+3- update function :
+	ex:
+		String nameTable = "....." , condition = "ID = 1 AND name = 'hassan' ";
+
+		HashMap hash = new HashMap<String,String>();
+	
+		hash.put("data","column1 = ... ,column2 = ...  ,column n = ....");
+
+		update (nameTable,hash,condition); return boolean
+
+4- delete function :
+	ex:
+		
+		HashMap hash = new HashMap<String,String>();	
+
+		hash.put("nameTable"," .... ");
+
+		hash.put("condition (optional) "," ..... (optional if you need to remove all data from table don't put anything here)");
+
+		delete(hash) return boolean
+
+
+5- close function: return Boolean
+
+
