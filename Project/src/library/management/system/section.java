@@ -57,20 +57,23 @@ public class section {
         insert.put("numberBook", Integer.toString(obj.getNumOfBook()));
         insert.put("serialNo", obj.getSn());
         insert.put("description", "'"+obj.getDescription()+"'");
-        //insert.put("subSection", "1");
+        insert.put("subSection", "1");
         return db.insert("section",insert);
     }
-    public boolean editSection(String data, String sn)
+    public boolean editSection(section obj, String sn)
     {
          HashMap<String,String> edit = new HashMap<>();
-        edit.put("data",data);
+        edit.put("data","name = '"+obj.getName()+"'"
+                    +",serialNo = "+obj.getSn()
+                    +",numberBook = "+obj.getNumOfBook()
+                    +",description = '"+obj.getDescription()+"'");
         return db.update("section",edit,"serialNo = "+sn);
     }
     public boolean deleteSection(String sn, String name)
     {
         HashMap<String,String> delete = new HashMap<>();
         delete.put("nameTable","section");
-        delete.put("condition" , "serialNo = " + sn +"AND name = '"+name+"'");
+        delete.put("condition" , "serialNo = " + sn +" AND name = '"+name+"'");
         return db.delete(delete);
     }
     public boolean searchSection(String sn, String name) throws SQLException
@@ -78,7 +81,7 @@ public class section {
         HashMap<String,String> search = new HashMap<>();
         search.put("column","*");
         search.put("nameTable","section");
-        search.put("condition" , "serialNo = " + sn +"AND name = '"+name+"'");
+        search.put("condition" , "serialNo = " + sn +" AND name = '"+name+"'");
         ResultSet rs = db.select(search);
         return rs.next();
     }
@@ -94,12 +97,12 @@ public class section {
     }
     
     
-   /* public section[] listSection(String sn, String name) throws SQLException
+    public section[] listSection(String sn, String name) throws SQLException
     {
         HashMap<String,String> search = new HashMap<>();
         search.put("column","*");
         search.put("nameTable","section");
-        search.put("condition" , "sn = " + sn +"AND name = '"+name+"'");
+        search.put("condition" , "sn = " + sn +" AND name = '"+name+"'");
         ResultSet rs = db.select(search);
         
         ArrayList<section> sectionList =new ArrayList<section>();
@@ -119,10 +122,10 @@ public class section {
         if(j==0)
             return null;
         else
-        return convertToArray(sectionList);*/
+        return convertToArray(sectionList);
         
         /*section[] obj = new section[10];
-        return obj;
-    }*/
+        return obj;*/
+    }
     
 }
