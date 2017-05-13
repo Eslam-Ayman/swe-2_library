@@ -97,7 +97,7 @@ public class section {
     }
     
     
-    public section[] listSection(String sn, String name) throws SQLException
+   /* public section[] listSection(String sn, String name) throws SQLException
     {
         HashMap<String,String> search = new HashMap<>();
         search.put("column","*");
@@ -124,8 +124,8 @@ public class section {
         else
         return convertToArray(sectionList);
         
-        /*section[] obj = new section[10];
-        return obj;*/
-    }
+        section[] obj = new section[10];
+        return obj;
+    }*/
     
 }
