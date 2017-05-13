@@ -398,7 +398,8 @@ public class database {
             String value = (String) keyValue.get("value");
 
             String query = "INSERT INTO `" + nameTable + "` (" + column + ") VALUES (" + value + ");";
-
+            
+            System.out.println(query);
             this.statement.executeUpdate(query);
 
             return true;
@@ -485,7 +486,7 @@ public class database {
             }
 
             String query = "UPDATE `" + nameTable + "` SET " + data + " " + condition + ";";
-
+            System.out.println(query);
             this.statement.executeLargeUpdate(query);
 
             return true;
@@ -565,7 +566,7 @@ public class database {
                 condition = "WHERE " + condition;
             }
 
-            String query = "DELETE FROM  TABLE " + nameTable + " " + condition;
+            String query = "DELETE FROM " + nameTable + " " + condition;
 
             this.statement.executeLargeUpdate(query);
 

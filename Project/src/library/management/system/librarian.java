@@ -611,7 +611,7 @@ public class librarian {
     *   @param ...  
     *   @return ...
      */
-    public member searchMember(String id) {
+    /*public member searchMember(String id) {
         HashMap<String, String> search = new HashMap<>();
 
         search.put("column", " * ");
@@ -619,7 +619,7 @@ public class librarian {
         search.put("condition", "id = " + id + " ");
 
         return (member) db.select(search);
-    }
+    }*/
 
     /*
     *   function search section

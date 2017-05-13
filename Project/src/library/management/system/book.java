@@ -24,8 +24,8 @@ public class Book {
     private final database db;
     public Book()
     {
-        copy =new Copy();
-        valid =new Validation();
+        //copy =new Copy();
+        //valid =new Validation();
         db = database.getInstance();
     }
     public Boolean setSn(String sn)
