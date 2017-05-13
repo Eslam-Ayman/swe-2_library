@@ -86,6 +86,36 @@ public class section {
         return rs.next();
     }
     
+    public section getSection(String sn,String name) throws SQLException
+    {
+        if(searchSection(sn, name))
+        {
+        HashMap hash = new HashMap<String,String>();
+        hash.put("column","*");
+        hash.put("nameTable","section");
+        hash.put("condition" , "serialNo = " + sn +" AND name = '"+name+"'");
+        ResultSet resultSet =db.select(hash);
+        section section =new section();
+        
+        if(resultSet.next())
+        {
+            int i=2;
+                section.setName((String) resultSet.getObject(i));
+                section.setDescription((String) resultSet.getObject(++i));
+                section.setSn(String.valueOf( resultSet.getObject(++i)));
+                section.setNumOfBook((Integer) resultSet.getObject(++i));
+                
+            
+        
+        return section;
+        }
+        else
+            return null;
+        }
+        else
+            return null;
+    }
+    
     public section [] convertToArray(ArrayList<section> section)
     {
         section booklist[] =new section[section.size()];
@@ -97,12 +127,12 @@ public class section {
     }
     
     
-   /* public section[] listSection(String sn, String name) throws SQLException
+    public section[] listSection(String sn, String name) throws SQLException
     {
         HashMap<String,String> search = new HashMap<>();
         search.put("column","*");
         search.put("nameTable","section");
-        search.put("condition" , "sn = " + sn +" AND name = '"+name+"'");
+        search.put("condition" , "serialNo = " + sn +" AND name = '"+name+"'");
         ResultSet rs = db.select(search);
         
         ArrayList<section> sectionList =new ArrayList<section>();
@@ -111,7 +141,7 @@ public class section {
         
         while (rs.next())
         {
-            section=getBook(String.valueOf(rs.getObject(1)), name);
+            section=getSection(String.valueOf(rs.getObject(4)), name);
             if(j==0 && section==null)
                 return null;
             if(section==null)
@@ -124,8 +154,8 @@ public class section {
         else
         return convertToArray(sectionList);
         
-        section[] obj = new section[10];
-        return obj;
-    }*/
+        /*section[] obj = new section[10];
+        return obj;*/
+    }
     
 }

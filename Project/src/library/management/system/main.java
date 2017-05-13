@@ -34,6 +34,7 @@ public class main {
         //System.out.println(science.editSection(science,"1"));
         //System.out.println(science.deleteSection("121","science"));
         //System.out.println(science.searchSection("1231","science"));
+        //System.out.println(science.listSection("1234","science")[0].getSn());
         
     }
     
